@@ -13,6 +13,7 @@ import { PersonListComponent } from './person-list/person-list.component';
 import { PersonService } from './shared/person.service';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth-guard.service';
+import { MeComponent } from './me/me.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthGuard } from './guards/auth-guard.service';
     AuthenticationComponent,
     PersonComponent,
     PersonListComponent,
-    LoginComponent
+    LoginComponent,
+    MeComponent
   ],
   imports: [
     BrowserModule,

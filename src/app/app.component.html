@@ -1,10 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>Welcome to {{ title }}!</h1>
-  <img src="https://static.pipl.com/pipl-home/static/img/logo.png" />
+  <app-me></app-me>
+  <a [routerLink]="['/']">Home</a>
   <a [routerLink]="['/people']">People</a>
   <a [routerLink]="['/login']">Login</a>
   <hr />
-  <app-authentication></app-authentication>
 </div>
 <router-outlet></router-outlet>

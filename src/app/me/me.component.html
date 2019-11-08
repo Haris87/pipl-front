@@ -1,0 +1,4 @@
+<div *ngIf="user">
+  <img [src]="user?.photoURL" style="max-height:30px; border-radius: 50%" />
+  <span>{{ user?.displayName }}</span>
+</div>
