@@ -1,7 +1,7 @@
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscriber } from 'rxjs';
 
 @Injectable()
 export class AuthenticationService {
@@ -9,6 +9,16 @@ export class AuthenticationService {
 
   constructor(private angularFireAuth: AngularFireAuth) {
     this.userData = angularFireAuth.authState;
+  }
+
+  isAuthenticated() {
+    return Observable.create(observer => {
+      this.userData.subscribe(user => {
+        console.log('AUTHENTICATED', !!user);
+        observer.next(!!user);
+        observer.complete();
+      });
+    });
   }
 
   signInGmail() {

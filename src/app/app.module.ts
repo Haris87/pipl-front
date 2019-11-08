@@ -11,13 +11,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { PersonComponent } from './person/person.component';
 import { PersonListComponent } from './person-list/person-list.component';
 import { PersonService } from './shared/person.service';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './guards/auth-guard.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
     PersonComponent,
-    PersonListComponent
+    PersonListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,7 @@ import { PersonService } from './shared/person.service';
     AngularFireAuthModule,
     FormsModule
   ],
-  providers: [AuthenticationService, PersonService],
+  providers: [AuthenticationService, PersonService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
