@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../shared/authentication.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-authentication',
@@ -27,12 +28,9 @@ export class AuthenticationComponent implements OnInit {
 
   ngOnInit() {
     this.authenticationService.userData.subscribe(user => {
-      console.log(user);
       this.user = user;
     });
   }
 
-  ngOnDestroy() {
-    this.authenticationService.userData;
-  }
+  ngOnDestroy() {}
 }

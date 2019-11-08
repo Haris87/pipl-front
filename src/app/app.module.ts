@@ -7,17 +7,26 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { AppRoutingModule } from './app-routing.module';
+import { PersonComponent } from './person/person.component';
+import { PersonListComponent } from './person-list/person-list.component';
+import { PersonService } from './shared/person.service';
 
 @NgModule({
-  declarations: [AppComponent, AuthenticationComponent],
+  declarations: [
+    AppComponent,
+    AuthenticationComponent,
+    PersonComponent,
+    PersonListComponent
+  ],
   imports: [
     BrowserModule,
-    // AppRoutingModule,
+    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     FormsModule
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, PersonService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
