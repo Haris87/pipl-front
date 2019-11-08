@@ -11,16 +11,6 @@ export class AuthenticationService {
     this.userData = angularFireAuth.authState;
   }
 
-  isAuthenticated() {
-    return Observable.create(observer => {
-      this.userData.subscribe(user => {
-        console.log('AUTHENTICATED', !!user);
-        observer.next(!!user);
-        observer.complete();
-      });
-    });
-  }
-
   signInGmail() {
     this.angularFireAuth.auth
       .signInWithPopup(new auth.GoogleAuthProvider())
