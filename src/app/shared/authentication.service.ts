@@ -11,32 +11,7 @@ export class AuthenticationService {
     this.userData = angularFireAuth.authState;
   }
 
-  /* Sign up */
-  SignUpEmail(email: string, password: string) {
-    this.angularFireAuth.auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(res => {
-        console.log('Successfully signed up!', res);
-      })
-      .catch(error => {
-        console.log('Something is wrong:', error.message);
-      });
-  }
-
-  /* Sign in */
-  SignInEmail(email: string, password: string) {
-    this.angularFireAuth.auth
-      .signInWithEmailAndPassword(email, password)
-      .then(res => {
-        console.log('Successfully signed in!');
-      })
-      .catch(err => {
-        console.log('Something is wrong:', err.message);
-      });
-  }
-
-  /* Sign in */
-  SignInGmail() {
+  signInGmail() {
     this.angularFireAuth.auth
       .signInWithPopup(new auth.GoogleAuthProvider())
       .then(res => {
@@ -47,8 +22,41 @@ export class AuthenticationService {
       });
   }
 
+  signInTwitter() {
+    this.angularFireAuth.auth
+      .signInWithPopup(new auth.TwitterAuthProvider())
+      .then(res => {
+        console.log('Successfully signed in!');
+      })
+      .catch(err => {
+        console.log('Something is wrong:', err.message);
+      });
+  }
+
+  signUpEmail(email: string, password: string) {
+    this.angularFireAuth.auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(res => {
+        console.log('Successfully signed up!', res);
+      })
+      .catch(error => {
+        console.log('Something is wrong:', error.message);
+      });
+  }
+
+  signInEmail(email: string, password: string) {
+    this.angularFireAuth.auth
+      .signInWithEmailAndPassword(email, password)
+      .then(res => {
+        console.log('Successfully signed in!');
+      })
+      .catch(err => {
+        console.log('Something is wrong:', err.message);
+      });
+  }
+
   /* Sign out */
-  SignOut() {
+  signOut() {
     this.angularFireAuth.auth.signOut();
   }
 }

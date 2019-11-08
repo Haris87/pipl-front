@@ -1,23 +1,31 @@
-<h1 *ngIf="authenticationService.userData | async">
-  Hello {{ (authenticationService.userData | async)?.email }}
-</h1>
-
-<div *ngIf="!(authenticationService.userData | async)">
+<!-- <div *ngIf="!user">
   <input type="text" [(ngModel)]="email" placeholder="email" />
   <input type="password" [(ngModel)]="password" placeholder="password" />
 
   <button (click)="signUpEmail()">Sign Up</button>
 
   <button (click)="signInEmail()">Login</button>
+</div> -->
+
+<div *ngIf="!user">
+  <button (click)="signInGmail()" *ngIf="!user">
+    Login with Gmail
+  </button>
+
+  <button (click)="signInTwitter()" *ngIf="!user">
+    Login with Twitter
+  </button>
 </div>
 
-<button
-  (click)="signInGmail()"
-  *ngIf="!(authenticationService.userData | async)"
->
-  Login with Gmail
-</button>
+<div *ngIf="user">
+  <img [src]="user.photoURL" style="max-height:30px; border-radius: 50%" />
+  <span>{{ user.displayName }}</span>
 
-<button (click)="signOut()" *ngIf="authenticationService.userData | async">
-  Logout
-</button>
+  <button (click)="signOut()">
+    Logout
+  </button>
+
+  <pre *ngIf="user">
+    {{ user | json }}
+  </pre>
+</div>

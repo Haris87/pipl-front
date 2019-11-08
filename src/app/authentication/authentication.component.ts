@@ -9,27 +9,30 @@ import { AuthenticationService } from '../shared/authentication.service';
 export class AuthenticationComponent implements OnInit {
   constructor(public authenticationService: AuthenticationService) {}
 
+  user: any;
   email: string;
   password: string;
 
-  signUpEmail() {
-    this.authenticationService.SignUpEmail(this.email, this.password);
-    this.email = '';
-    this.password = '';
-  }
-
-  signInEmail() {
-    this.authenticationService.SignInEmail(this.email, this.password);
-    this.email = '';
-    this.password = '';
+  signInTwitter() {
+    this.authenticationService.signInTwitter();
   }
 
   signInGmail() {
-    this.authenticationService.SignInGmail();
+    this.authenticationService.signInGmail();
   }
 
   signOut() {
-    this.authenticationService.SignOut();
+    this.authenticationService.signOut();
   }
-  ngOnInit() {}
+
+  ngOnInit() {
+    this.authenticationService.userData.subscribe(user => {
+      console.log(user);
+      this.user = user;
+    });
+  }
+
+  ngOnDestroy() {
+    this.authenticationService.userData;
+  }
 }
