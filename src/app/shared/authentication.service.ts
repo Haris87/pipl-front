@@ -1,11 +1,11 @@
-import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
-import { Injectable } from '@angular/core';
-import { Observable, Subscriber } from 'rxjs';
+import { AngularFireAuth } from "@angular/fire/auth";
+import { auth } from "firebase";
+import { Injectable } from "@angular/core";
+import { Observable, Subscriber } from "rxjs";
 
 @Injectable()
 export class AuthenticationService {
-  userData: Observable<firebase.User>;
+  userData: Observable<any>;
 
   constructor(private angularFireAuth: AngularFireAuth) {
     this.userData = angularFireAuth.authState;
@@ -15,10 +15,10 @@ export class AuthenticationService {
     this.angularFireAuth.auth
       .signInWithPopup(new auth.GoogleAuthProvider())
       .then(res => {
-        console.log('Successfully signed in!');
+        console.log("Successfully signed in!");
       })
       .catch(err => {
-        console.log('Something is wrong:', err.message);
+        console.log("Something is wrong:", err.message);
       });
   }
 
@@ -26,10 +26,10 @@ export class AuthenticationService {
     this.angularFireAuth.auth
       .signInWithPopup(new auth.TwitterAuthProvider())
       .then(res => {
-        console.log('Successfully signed in!');
+        console.log("Successfully signed in!");
       })
       .catch(err => {
-        console.log('Something is wrong:', err.message);
+        console.log("Something is wrong:", err.message);
       });
   }
 
@@ -37,10 +37,10 @@ export class AuthenticationService {
     this.angularFireAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then(res => {
-        console.log('Successfully signed up!', res);
+        console.log("Successfully signed up!", res);
       })
       .catch(error => {
-        console.log('Something is wrong:', error.message);
+        console.log("Something is wrong:", error.message);
       });
   }
 
@@ -48,10 +48,10 @@ export class AuthenticationService {
     this.angularFireAuth.auth
       .signInWithEmailAndPassword(email, password)
       .then(res => {
-        console.log('Successfully signed in!');
+        console.log("Successfully signed in!");
       })
       .catch(err => {
-        console.log('Something is wrong:', err.message);
+        console.log("Something is wrong:", err.message);
       });
   }
 

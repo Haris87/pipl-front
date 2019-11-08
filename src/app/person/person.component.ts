@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Person } from '../person';
-import { PersonService } from '../shared/person.service';
-import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs/observable/of';
+import { Component, OnInit } from "@angular/core";
+import { Person } from "../person";
+import { PersonService } from "../shared/person.service";
+import { ActivatedRoute } from "@angular/router";
+import { of } from "rxjs";
 
 @Component({
-  selector: 'app-person',
-  templateUrl: './person.component.html',
-  styleUrls: ['./person.component.css']
+  selector: "app-person",
+  templateUrl: "./person.component.html",
+  styleUrls: ["./person.component.css"]
 })
 export class PersonComponent implements OnInit {
   constructor(
@@ -20,7 +20,7 @@ export class PersonComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      const id = parseInt(params.get('id'));
+      const id = parseInt(params.get("id"));
       this.personService.getPerson(id).subscribe(
         _person => {
           this.person = _person;

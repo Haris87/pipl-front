@@ -1,16 +1,16 @@
-import { Injectable } from '@angular/core';
-import { Person } from '../person';
-import { of } from '../../../node_modules/rxjs/observable/of';
+import { Injectable } from "@angular/core";
+import { Person } from "../person";
+import { of } from "rxjs";
 
 @Injectable()
 export class PersonService {
   constructor() {}
 
   people: Person[] = [
-    new Person(1, 'John', 'Doe'),
-    new Person(2, 'Jane', 'Doe'),
-    new Person(3, 'Billy', 'Doe'),
-    new Person(4, 'Hector', 'Doe')
+    new Person(1, "John", "Doe"),
+    new Person(2, "Jane", "Doe"),
+    new Person(3, "Billy", "Doe"),
+    new Person(4, "Hector", "Doe")
   ];
 
   getPeople() {
