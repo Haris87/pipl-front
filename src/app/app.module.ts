@@ -25,6 +25,9 @@ import { MatListModule } from "@angular/material/list";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatCardModule } from "@angular/material/card";
 import { MatMenuModule } from "@angular/material/menu";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material";
 import { MainLayoutComponent } from "./main-layout/main-layout.component";
 import { FooterOnlyLayoutComponent } from "./footer-only-layout/footer-only-layout.component";
 import { FooterComponent } from "./footer/footer.component";
@@ -51,6 +54,9 @@ import { HeaderComponent } from "./header/header.component";
     BrowserAnimationsModule,
     FormsModule,
     LayoutModule,
+    FlexLayoutModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,

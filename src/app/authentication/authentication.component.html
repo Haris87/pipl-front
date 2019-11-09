@@ -6,25 +6,22 @@
 
   <button (click)="signInEmail()">Login</button>
 </div> -->
-
-<div *ngIf="!user">
-  <button (click)="signInGmail()" *ngIf="!user">
+<div fxLayout="column" fxLayoutAlign="space-between stretch">
+  <button
+    mat-raised-button
+    color="warn"
+    class="btn-block"
+    (click)="signInGmail()"
+  >
     Login with Gmail
   </button>
 
-  <button (click)="signInTwitter()" *ngIf="!user">
+  <button
+    mat-raised-button
+    color="twitter"
+    class="btn-block"
+    (click)="signInTwitter()"
+  >
     Login with Twitter
   </button>
-</div>
-
-<div *ngIf="user">
-  <app-me></app-me>
-
-  <button (click)="signOut()">
-    Logout
-  </button>
-
-  <!-- <pre *ngIf="user" style="text-align:left">
-    {{ user | json }}
-  </pre> -->
 </div>
