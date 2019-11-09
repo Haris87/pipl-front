@@ -1,4 +1,4 @@
-import { AuthenticationService } from "../shared/authentication.service";
+import { AuthenticationService } from "../services/authentication.service";
 import { Injectable } from "@angular/core";
 import {
   CanActivate,
@@ -26,7 +26,7 @@ export class LoggedGuard implements CanActivate {
         console.log("USER", user);
         if (!!user) {
           console.log("notLogged");
-          this._router.navigate(["/people"]);
+          this._router.navigate(["/"]);
           notLogged = false;
         } else {
           notLogged = true;

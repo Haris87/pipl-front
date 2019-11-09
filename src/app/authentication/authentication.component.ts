@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../shared/authentication.service';
-import { Observable, Subject } from 'rxjs';
+import { Component, OnInit } from "@angular/core";
+import { AuthenticationService } from "../services/authentication.service";
+import { Observable, Subject } from "rxjs";
 
 @Component({
-  selector: 'app-authentication',
-  templateUrl: './authentication.component.html',
-  styleUrls: ['./authentication.component.css']
+  selector: "app-authentication",
+  templateUrl: "./authentication.component.html",
+  styleUrls: ["./authentication.component.css"]
 })
 export class AuthenticationComponent implements OnInit {
   constructor(public authenticationService: AuthenticationService) {}

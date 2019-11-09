@@ -1,13 +1,13 @@
-import { AuthenticationService } from '../shared/authentication.service';
-import { Injectable } from '@angular/core';
+import { AuthenticationService } from "../services/authentication.service";
+import { Injectable } from "@angular/core";
 import {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   Router,
   Route
-} from '@angular/router';
-import { Observable } from 'rxjs';
+} from "@angular/router";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -23,14 +23,14 @@ export class AuthGuard implements CanActivate {
     return Observable.create(observer => {
       this._authService.userData.subscribe(user => {
         let authenticated;
-        console.log('USER', user);
+        console.log("USER", user);
         if (user == null) {
           // this part always fires
-          console.log('no auth!');
-          this._router.navigate(['/login']);
+          console.log("no auth!");
+          this._router.navigate(["/login"]);
           authenticated = false;
         } else {
-          console.log('authenticated');
+          console.log("authenticated");
           authenticated = true;
         }
 

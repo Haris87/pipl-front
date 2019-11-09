@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
-import { AuthenticationService } from "./shared/authentication.service";
+import { AuthenticationService } from "./services/authentication.service";
 import { environment } from "../environments/environment";
 import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
@@ -11,7 +11,8 @@ import { AuthenticationComponent } from "./authentication/authentication.compone
 import { AppRoutingModule } from "./app-routing.module";
 import { PersonComponent } from "./person/person.component";
 import { PersonListComponent } from "./person-list/person-list.component";
-import { PersonService } from "./shared/person.service";
+import { PersonService } from "./services/person.service";
+import { PiplService } from "./services/pipl.service";
 import { LoginComponent } from "./login/login.component";
 import { AuthGuard } from "./guards/auth-guard.service";
 import { LoggedGuard } from "./guards/logged-guard.service";
@@ -32,6 +33,9 @@ import { MainLayoutComponent } from "./main-layout/main-layout.component";
 import { FooterOnlyLayoutComponent } from "./footer-only-layout/footer-only-layout.component";
 import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
+import { PiplResultsComponent } from './pipl-results/pipl-results.component';
+import { PiplSearchComponent } from './pipl-search/pipl-search.component';
+import { PiplComponent } from './pipl/pipl.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,10 @@ import { HeaderComponent } from "./header/header.component";
     MainLayoutComponent,
     FooterOnlyLayoutComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    PiplResultsComponent,
+    PiplSearchComponent,
+    PiplComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +73,13 @@ import { HeaderComponent } from "./header/header.component";
     MatCardModule,
     MatMenuModule
   ],
-  providers: [AuthenticationService, PersonService, AuthGuard, LoggedGuard],
+  providers: [
+    AuthenticationService,
+    PersonService,
+    PiplService,
+    AuthGuard,
+    LoggedGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Person } from "../person";
-import { PersonService } from "../shared/person.service";
+import { PersonService } from "../services/person.service";
 import { ActivatedRoute } from "@angular/router";
 import { of } from "rxjs";
 
