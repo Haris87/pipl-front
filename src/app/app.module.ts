@@ -14,6 +14,7 @@ import { PersonListComponent } from "./person-list/person-list.component";
 import { PersonService } from "./shared/person.service";
 import { LoginComponent } from "./login/login.component";
 import { AuthGuard } from "./guards/auth-guard.service";
+import { LoggedGuard } from "./guards/logged-guard.service";
 import { MeComponent } from "./me/me.component";
 import { LayoutModule } from "@angular/cdk/layout";
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -24,10 +25,10 @@ import { MatListModule } from "@angular/material/list";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatCardModule } from "@angular/material/card";
 import { MatMenuModule } from "@angular/material/menu";
-import { MainLayoutComponent } from './main-layout/main-layout.component';
-import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
+import { MainLayoutComponent } from "./main-layout/main-layout.component";
+import { FooterOnlyLayoutComponent } from "./footer-only-layout/footer-only-layout.component";
+import { FooterComponent } from "./footer/footer.component";
+import { HeaderComponent } from "./header/header.component";
 
 @NgModule({
   declarations: [
@@ -59,7 +60,7 @@ import { HeaderComponent } from './header/header.component';
     MatCardModule,
     MatMenuModule
   ],
-  providers: [AuthenticationService, PersonService, AuthGuard],
+  providers: [AuthenticationService, PersonService, AuthGuard, LoggedGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

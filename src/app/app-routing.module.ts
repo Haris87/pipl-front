@@ -6,30 +6,31 @@ import { AuthGuard } from "./guards/auth-guard.service";
 import { LoginComponent } from "./login/login.component";
 import { FooterOnlyLayoutComponent } from "./footer-only-layout/footer-only-layout.component";
 import { MainLayoutComponent } from "./main-layout/main-layout.component";
+import { LoggedGuard } from "./guards/logged-guard.service";
 
 const routes: Routes = [
   {
-    path: "",
+    path: "people",
     component: MainLayoutComponent,
     children: [
       {
-        path: "people",
-        component: PersonListComponent,
-        canActivate: [AuthGuard]
+        path: "",
+        component: PersonListComponent
       },
       {
-        path: "people/:id",
-        component: PersonComponent,
-        canActivate: [AuthGuard]
+        path: ":id",
+        component: PersonComponent
       }
-    ]
+    ],
+    canActivate: [AuthGuard]
   },
   {
     path: "login",
     component: FooterOnlyLayoutComponent,
-    children: [{ path: "", component: LoginComponent }]
+    children: [{ path: "", component: LoginComponent }],
+    canActivate: [LoggedGuard]
   },
-  { path: "", redirectTo: "/", pathMatch: "full" }
+  { path: "", redirectTo: "people", pathMatch: "full" }
 ];
 
 @NgModule({
