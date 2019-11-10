@@ -95,16 +95,30 @@
       </div>
     </div>
 
-    <div>
-      <button
-        mat-raised-button
-        style="width: 100px!important;"
-        color="accent"
-        class="btn-block"
-        (click)="search()"
-      >
-        Search
-      </button>
+    <div fxLayout="row wrap" fxLayoutAlign="space-between" fxLayoutGap="10px;">
+      <div fxFlex>
+        <button
+          mat-stroked-button
+          style="width: 100px!important;"
+          color="primary"
+          class="btn-block"
+          (click)="clear()"
+        >
+          Clear
+        </button>
+      </div>
+
+      <div fxFlex>
+        <button
+          mat-raised-button
+          style="width: 100px!important;"
+          color="primary"
+          class="btn-block"
+          (click)="search()"
+        >
+          Search
+        </button>
+      </div>
     </div>
   </mat-card>
 </div>

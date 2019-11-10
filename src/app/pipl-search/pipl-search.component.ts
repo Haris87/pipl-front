@@ -17,4 +17,8 @@ export class PiplSearchComponent implements OnInit {
     this.resultType = !this.resultType;
     this.piplService.search(new PiplQuery(), this.resultType);
   }
+
+  clear() {
+    //TODO: clear all fields
+  }
 }

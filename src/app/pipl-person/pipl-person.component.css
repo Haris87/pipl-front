@@ -22,6 +22,7 @@ mat-card {
 }
 
 .table-cell {
+  min-width: 90px;
   margin-top: 10px;
 }
 
