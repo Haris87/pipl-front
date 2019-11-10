@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from "@angular/core";
 })
 export class PiplPersonComponent implements OnInit {
   @Input("person") person: any;
+  @Input("lite") lite: boolean = false;
 
   constructor() {}
 

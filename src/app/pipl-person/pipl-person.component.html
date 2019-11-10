@@ -1,8 +1,10 @@
-<div class="container">
+<div class="container" (click)="lite = !lite">
   <mat-card>
+    <!-- 
     <mat-card-header>
       <mat-card-title></mat-card-title>
     </mat-card-header>
+    -->
 
     <div fxLayout="column" fxLayoutAlign="left space-between">
       <!-- Top row: Image name, email, phone, age-->
@@ -17,6 +19,7 @@
                   : 'https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png'
               "
               onError="this.src='https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png'"
+              [ngClass]="{ 'image-lite': lite }"
             />
           </div>
         </div>
@@ -49,7 +52,7 @@
 
       <!-- Second row-->
       <div
-        *ngIf="person.names"
+        *ngIf="person.names && !lite"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
@@ -62,7 +65,7 @@
       </div>
 
       <div
-        *ngIf="person.phones"
+        *ngIf="person.phones && !lite"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
@@ -77,7 +80,7 @@
       </div>
 
       <div
-        *ngIf="person.emails"
+        *ngIf="person.emails && !lite"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
@@ -92,7 +95,7 @@
       </div>
 
       <div
-        *ngIf="person.addresses"
+        *ngIf="person.addresses && !lite"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
@@ -107,7 +110,7 @@
       </div>
 
       <div
-        *ngIf="person.languages"
+        *ngIf="person.languages && !lite"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
@@ -118,7 +121,7 @@
       </div>
 
       <div
-        *ngIf="person.ethinicities"
+        *ngIf="person.ethinicities && !lite"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
@@ -129,7 +132,7 @@
       </div>
 
       <div
-        *ngIf="person.origin_countries"
+        *ngIf="person.origin_countries && !lite"
         fxLayout="row wrap"
         fxLayoutGap="10px"
       >
@@ -141,7 +144,7 @@
       </div>
 
       <div
-        *ngIf="person.user_ids"
+        *ngIf="person.user_ids && !lite"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
@@ -157,7 +160,7 @@
       </div>
 
       <div
-        *ngIf="person.usernames"
+        *ngIf="person.usernames && !lite"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
@@ -173,7 +176,7 @@
       </div>
 
       <div
-        *ngIf="person.educations"
+        *ngIf="person.educations && !lite"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
@@ -188,7 +191,7 @@
       </div>
 
       <div
-        *ngIf="person.jobs"
+        *ngIf="person.jobs && !lite"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
@@ -203,7 +206,7 @@
       </div>
 
       <div
-        *ngIf="person.relationships"
+        *ngIf="person.relationships && !lite"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
@@ -218,7 +221,7 @@
       </div>
 
       <div
-        *ngIf="person.urls"
+        *ngIf="person.urls && !lite"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"

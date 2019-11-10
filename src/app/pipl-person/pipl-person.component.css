@@ -24,3 +24,7 @@ mat-card {
 .table-cell {
   margin-top: 10px;
 }
+
+.image-lite {
+  width: 100px !important;
+}
