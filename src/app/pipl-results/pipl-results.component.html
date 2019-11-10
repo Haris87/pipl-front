@@ -1,3 +1,15 @@
-<pre>
-    {{ results | json }}
-</pre>
+<div class="container" fxLayout="column">
+  <div class="person" *ngIf="results?.person">
+    <app-pipl-person [person]="results.person"></app-pipl-person>
+  </div>
+  <div class="possible" *ngIf="results?.possible_persons">
+    <div *ngFor="let possible_person of results.possible_persons">
+      <app-pipl-person [person]="possible_person"></app-pipl-person>
+    </div>
+  </div>
+  <div>
+    <pre>
+        {{ results | json }}
+    </pre>
+  </div>
+</div>

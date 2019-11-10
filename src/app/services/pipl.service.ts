@@ -3,6 +3,8 @@ import { PiplQuery } from "../pipl-query";
 import { possible, person } from "../data/pipl-response";
 import { Observable, of, Subject } from "rxjs";
 
+const STORAGE_KEY = "_pipl_api";
+
 @Injectable({
   providedIn: "root"
 })
@@ -14,11 +16,11 @@ export class PiplService {
   results: Subject<any>;
 
   setApiKey(ApiKey: string) {
-    localStorage.setItem("pipl_api", ApiKey);
+    localStorage.setItem(STORAGE_KEY, ApiKey);
   }
 
   getApiKey() {
-    return localStorage.getItem("pipl_api");
+    return localStorage.getItem(STORAGE_KEY);
   }
 
   getResults(): Observable<any> {

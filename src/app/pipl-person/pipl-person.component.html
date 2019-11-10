@@ -1,0 +1,76 @@
+<div>
+  <strong>match: {{ person["@match"] }}</strong>
+  <!-- <pre>{{ person | json }}</pre> -->
+  <div *ngIf="person.images">
+    <span *ngFor="let src of getImages()"
+      ><img [src]="src" onError="this.style='display:none'"
+    /></span>
+  </div>
+  <div *ngIf="person.names">
+    names:
+    <span>{{ showNames() }}</span>
+  </div>
+  <div *ngIf="person.dob">
+    age:
+    <span>{{ person.dob.display }}</span>
+  </div>
+  <div *ngIf="person.gender">
+    gender:
+    <span>{{ person.gender.content }}</span>
+  </div>
+  <div *ngIf="person.emails">
+    emails:
+    <span>{{ showEmails() }} </span>
+  </div>
+  <div *ngIf="person.addresses">
+    addresses:
+    <span>{{ showAddresses() }} </span>
+  </div>
+  <div *ngIf="person.languages">
+    languages:
+    <span>{{ showLanguages() }} </span>
+  </div>
+
+  <div *ngIf="person.jobs">
+    jobs:
+    <span>{{ showJobs() }} </span>
+  </div>
+
+  <div *ngIf="person.educations">
+    education:
+    <span>{{ showEducations() }} </span>
+  </div>
+
+  <div *ngIf="person.phones">
+    phones:
+    <span>{{ showPhones() }} </span>
+  </div>
+  <div *ngIf="person.user_ids">
+    user ids:
+    <span>{{ showUserIds() }} </span>
+  </div>
+  <div *ngIf="person.usernames">
+    usernames:
+    <span>{{ showUsernames() }} </span>
+  </div>
+
+  <div *ngIf="person.relationships">
+    relationships:
+    <span>{{ showRelationships() }} </span>
+  </div>
+  <div *ngIf="person.urls">
+    urls:
+    <span>{{ showUrls() }} </span>
+  </div>
+
+  <div *ngIf="person.ethinicities">
+    ethinicities:
+    <span>{{ showEthnicities() }} </span>
+  </div>
+
+  <div *ngIf="person.origin_countries">
+    origin country:
+    <span>{{ showOriginCountries() }} </span>
+  </div>
+  <hr />
+</div>

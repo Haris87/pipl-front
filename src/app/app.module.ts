@@ -36,6 +36,7 @@ import { HeaderComponent } from "./header/header.component";
 import { PiplResultsComponent } from './pipl-results/pipl-results.component';
 import { PiplSearchComponent } from './pipl-search/pipl-search.component';
 import { PiplComponent } from './pipl/pipl.component';
+import { PiplPersonComponent } from './pipl-person/pipl-person.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { PiplComponent } from './pipl/pipl.component';
     HeaderComponent,
     PiplResultsComponent,
     PiplSearchComponent,
-    PiplComponent
+    PiplComponent,
+    PiplPersonComponent
   ],
   imports: [
     BrowserModule,
