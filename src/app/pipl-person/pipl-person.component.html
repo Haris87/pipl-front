@@ -6,7 +6,7 @@
 
     <div fxLayout="column" fxLayoutAlign="left space-between">
       <!-- Top row: Image name, email, phone, age-->
-      <div fxLayout="row wrap" fxLayoutGap="10px">
+      <div fxLayout="row wrap" fxLayoutGap="10px" class="table-row">
         <div fxFlex class="images">
           <div class="image-container">
             <img
@@ -31,14 +31,63 @@
           <div *ngIf="person.gender">
             <span>{{ person.gender.content }}</span>
           </div>
+          <div *ngIf="person.emails">
+            <span>{{ person.emails[0].address }}</span>
+          </div>
+          <div *ngIf="person.phones">
+            <span>
+              {{ person.phones[0].display_international }}
+            </span>
+          </div>
+          <div *ngIf="person.addresses">
+            <span>
+              {{ person.addresses[0].display }}
+            </span>
+          </div>
         </div>
       </div>
 
       <!-- Second row-->
-      <div *ngIf="person.names" fxLayout="row wrap" fxLayoutGap="10px">
-        <div fxFlex>Names</div>
-        <div fxFlex fxGrow="4">
+      <div
+        *ngIf="person.names"
+        fxLayout="row wrap"
+        fxLayoutGap="10px"
+        class="table-row"
+      >
+        <mat-divider></mat-divider>
+        <div class="table-cell" fxFlex>Names</div>
+        <div class="table-cell" fxFlex fxGrow="4">
           <div>{{ showNames() }}</div>
+        </div>
+      </div>
+
+      <div
+        *ngIf="person.phones"
+        fxLayout="row wrap"
+        fxLayoutGap="10px"
+        class="table-row"
+      >
+        <mat-divider></mat-divider>
+        <div class="table-cell" fxFlex>Phones</div>
+        <div class="table-cell" fxFlex fxGrow="4">
+          <div *ngFor="let phone of person.phones">
+            {{ phone.display_international }}
+          </div>
+        </div>
+      </div>
+
+      <div
+        *ngIf="person.emails"
+        fxLayout="row wrap"
+        fxLayoutGap="10px"
+        class="table-row"
+      >
+        <mat-divider></mat-divider>
+        <div class="table-cell" fxFlex>Emails</div>
+        <div class="table-cell" fxFlex fxGrow="4">
+          <div *ngFor="let email of person.emails">
+            {{ email.address }}
+          </div>
         </div>
       </div>
 
@@ -46,24 +95,37 @@
         *ngIf="person.addresses"
         fxLayout="row wrap"
         fxLayoutGap="10px"
-        fxFlex
+        class="table-row"
       >
-        <div fxFlex>Addresses</div>
-        <div fxFlex fxGrow="4">
+        <mat-divider></mat-divider>
+        <div class="table-cell" fxFlex>Addresses</div>
+        <div class="table-cell" fxFlex fxGrow="4">
           <div *ngFor="let address of person.addresses">
             {{ address.display }}
           </div>
         </div>
       </div>
 
-      <div *ngIf="person.languages" fxLayout="row wrap" fxLayoutGap="10px">
-        <div fxFlex>Languages</div>
-        <div fxFlex fxGrow="4">{{ showLanguages() }}</div>
+      <div
+        *ngIf="person.languages"
+        fxLayout="row wrap"
+        fxLayoutGap="10px"
+        class="table-row"
+      >
+        <mat-divider></mat-divider>
+        <div class="table-cell" fxFlex>Languages</div>
+        <div class="table-cell" fxFlex fxGrow="4">{{ showLanguages() }}</div>
       </div>
 
-      <div *ngIf="person.ethinicities" fxLayout="row wrap" fxLayoutGap="10px">
-        <div fxFlex>Ethinicities</div>
-        <div fxFlex fxGrow="4">{{ showEthnicities() }}</div>
+      <div
+        *ngIf="person.ethinicities"
+        fxLayout="row wrap"
+        fxLayoutGap="10px"
+        class="table-row"
+      >
+        <mat-divider></mat-divider>
+        <div class="table-cell" fxFlex>Ethinicities</div>
+        <div class="table-cell" fxFlex fxGrow="4">{{ showEthnicities() }}</div>
       </div>
 
       <div
@@ -71,74 +133,104 @@
         fxLayout="row wrap"
         fxLayoutGap="10px"
       >
-        <div fxFlex>Origin Country</div>
-        <div fxFlex fxGrow="4">{{ showOriginCountries() }}</div>
-      </div>
-      <!--
-      <div fxLayout="row" class="contact">
-        <div>Contact</div>
-        <div>
-          <div *ngIf="person.phones">
-            phones:
-            <div *ngFor="let phone of person.phones">
-              {{ phone.display_international }}
-            </div>
-          </div>
-
-          <div *ngIf="person.emails">
-            emails:
-            <div *ngFor="let email of person.emails">
-              {{ email.address }}
-            </div>
-          </div>
+        <mat-divider></mat-divider>
+        <div class="table-cell" fxFlex>Origin Country</div>
+        <div class="table-cell" fxFlex fxGrow="4">
+          {{ showOriginCountries() }}
         </div>
       </div>
-  
-      <div fxLayout="row" class="online">
-        <div *ngIf="person.user_ids">
-          user ids:
-          <div *ngFor="let user_id of person.user_ids">
+
+      <div
+        *ngIf="person.user_ids"
+        fxLayout="row wrap"
+        fxLayoutGap="10px"
+        class="table-row"
+      >
+        <mat-divider></mat-divider>
+        <div class="table-cell" fxFlex>User IDs</div>
+        <div class="table-cell" fxFlex fxGrow="4">
+          {{ showUserIds() }}
+          <!-- <div *ngFor="let user_id of person.user_ids">
             {{ user_id.content }}
-          </div>
-        </div>
-        <div *ngIf="person.usernames">
-          usernames:
-          <div *ngFor="let username of person.usernames">
-            {{ username.content }}
-          </div>
-        </div>
-
-        <div *ngIf="person.urls">
-          urls:
-          <div *ngFor="let url of person.urls">
-            <a [href]="url.url" target="_blank">{{ url["@name"] }}</a>
-          </div>
+          </div> -->
         </div>
       </div>
 
-      <div class="professional">
-        <div *ngIf="person.jobs">
-          jobs:
-          <div *ngFor="let job of person.jobs">
-            {{ job.display }}
-          </div>
+      <div
+        *ngIf="person.usernames"
+        fxLayout="row wrap"
+        fxLayoutGap="10px"
+        class="table-row"
+      >
+        <mat-divider></mat-divider>
+        <div class="table-cell" fxFlex>Usernames</div>
+        <div class="table-cell" fxFlex fxGrow="4">
+          {{ showUsernames() }}
+          <!-- <div *ngFor="let user_id of person.user_ids">
+              {{ user_id.content }}
+            </div> -->
         </div>
+      </div>
 
-        <div *ngIf="person.educations">
-          education:
+      <div
+        *ngIf="person.educations"
+        fxLayout="row wrap"
+        fxLayoutGap="10px"
+        class="table-row"
+      >
+        <mat-divider></mat-divider>
+        <div class="table-cell" fxFlex>Education</div>
+        <div class="table-cell" fxFlex fxGrow="4">
           <div *ngFor="let education of person.educations">
             {{ education.display }}
           </div>
         </div>
       </div>
 
-                <div *ngIf="person.relationships">
-            relationships:
-            <div *ngFor="let relation of person.relationships">
-              {{ relation["@type"] }}: {{ relation.names[0]?.display }}
-            </div>
+      <div
+        *ngIf="person.jobs"
+        fxLayout="row wrap"
+        fxLayoutGap="10px"
+        class="table-row"
+      >
+        <mat-divider></mat-divider>
+        <div class="table-cell" fxFlex>Jobs</div>
+        <div class="table-cell" fxFlex fxGrow="4">
+          <div *ngFor="let job of person.jobs">
+            {{ job.display }}
           </div>
-      -->
+        </div>
+      </div>
+
+      <div
+        *ngIf="person.relationships"
+        fxLayout="row wrap"
+        fxLayoutGap="10px"
+        class="table-row"
+      >
+        <mat-divider></mat-divider>
+        <div class="table-cell" fxFlex>Relationships</div>
+        <div class="table-cell" fxFlex fxGrow="4">
+          <div *ngFor="let relation of person.relationships">
+            {{ relation["@type"] }} - {{ relation.names[0]?.display }}
+          </div>
+        </div>
+      </div>
+
+      <div
+        *ngIf="person.urls"
+        fxLayout="row wrap"
+        fxLayoutGap="10px"
+        class="table-row"
+      >
+        <mat-divider></mat-divider>
+        <div class="table-cell" fxFlex>URLs</div>
+        <div class="table-cell" fxFlex fxGrow="4">
+          <div *ngFor="let url of person.urls">
+            <a [href]="url.url" target="_blank">{{ url["@name"] }}</a>
+          </div>
+        </div>
+      </div>
     </div>
   </mat-card>
 </div>

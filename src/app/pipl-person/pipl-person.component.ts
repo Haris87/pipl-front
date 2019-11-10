@@ -57,7 +57,7 @@ export class PiplPersonComponent implements OnInit {
   }
 
   showLanguages() {
-    return this.person.languages.map(language => language.display).join(", ");
+    return this.person.languages.map(language => language.language).join(", ");
   }
 
   showEthinicities() {

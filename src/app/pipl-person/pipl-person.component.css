@@ -17,7 +17,10 @@ mat-card {
 }
 
 .table-row {
-  border-top: 1px solid rgb(150, 150, 150, 0.8);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.table-cell {
   margin-top: 10px;
-  margin-bottom: 10px;
 }
