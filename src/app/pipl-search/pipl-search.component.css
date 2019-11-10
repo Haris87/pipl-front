@@ -1,5 +1,11 @@
-mat-card {
+mat-card,
+button {
   margin: 5px;
+}
+
+button {
+  min-width: 100% !important;
+  line-height: 40px !important;
 }
 
 mat-form-field {

@@ -1,11 +1,7 @@
 <div class="container">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>
-        <div *ngIf="person.names">
-          <span>{{ person["@match"] }}: {{ showNames() }}</span>
-        </div>
-      </mat-card-title>
+      <mat-card-title> </mat-card-title>
     </mat-card-header>
 
     <div fxLayout="column" fxLayoutAlign="space-between">
@@ -14,6 +10,16 @@
           <span *ngFor="let src of getImages()"
             ><img [src]="src" onError="this.style='display:none'"
           /></span>
+        </div>
+
+        <div class="images" *ngIf="!person.images">
+          <img
+            src="https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png"
+          />
+        </div>
+
+        <div *ngIf="person.names">
+          <h3>{{ showNames() }}</h3>
         </div>
 
         <div class="personal">
