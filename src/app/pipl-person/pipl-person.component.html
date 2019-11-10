@@ -1,4 +1,4 @@
-<div class="container" (click)="lite = !lite">
+<div class="container">
   <mat-card>
     <!-- 
     <mat-card-header>
@@ -20,13 +20,17 @@
               "
               onError="this.src='https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png'"
               [ngClass]="{ 'image-lite': lite }"
+              style="cursor:pointer"
+              (click)="lite = !lite"
             />
           </div>
         </div>
 
         <div fxLayout="column" class="personal" fxFlex fxGrow="4">
           <div *ngIf="person.names">
-            <div style="font-size: 1.2em;">{{ person.names[0].display }}</div>
+            <div style="font-size: 1.3em;">
+              {{ person.names[0].display }}
+            </div>
           </div>
           <div *ngIf="person.dob">
             <span>{{ person.dob.display }}</span>
