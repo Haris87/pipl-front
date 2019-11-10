@@ -1,71 +1,80 @@
 <div class="container">
   <mat-card>
     <mat-card-header>
-      <mat-card-title> </mat-card-title>
+      <mat-card-title></mat-card-title>
     </mat-card-header>
 
-    <div fxLayout="column" fxLayoutAlign="space-between">
-      <div fxLayout="row">
-        <div class="images" *ngIf="person.images">
-          <span *ngFor="let src of getImages()"
-            ><img [src]="src" onError="this.style='display:none'"
-          /></span>
+    <div fxLayout="column" fxLayoutAlign="left space-between">
+      <!-- Top row: Image name, email, phone, age-->
+      <div fxLayout="row wrap" fxLayoutGap="10px">
+        <div fxFlex class="images">
+          <div class="image-container">
+            <img
+              class="image"
+              [src]="
+                person.images
+                  ? person.images[0].url
+                  : 'https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png'
+              "
+              onError="this.src='https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png'"
+            />
+          </div>
         </div>
 
-        <div class="images" *ngIf="!person.images">
-          <img
-            src="https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png"
-          />
-        </div>
-
-        <div *ngIf="person.names">
-          <h3>{{ showNames() }}</h3>
-        </div>
-
-        <div class="personal">
+        <div fxLayout="column" class="personal" fxFlex fxGrow="4">
+          <div *ngIf="person.names">
+            <div style="font-size: 1.2em;">{{ person.names[0].display }}</div>
+          </div>
           <div *ngIf="person.dob">
-            age:
             <span>{{ person.dob.display }}</span>
           </div>
           <div *ngIf="person.gender">
-            gender:
             <span>{{ person.gender.content }}</span>
           </div>
-          <div *ngIf="person.relationships">
-            relationships:
-            <div *ngFor="let relation of person.relationships">
-              {{ relation["@type"] }}: {{ relation.names[0]?.display }}
-            </div>
+        </div>
+      </div>
+
+      <!-- Second row-->
+      <div *ngIf="person.names" fxLayout="row wrap" fxLayoutGap="10px">
+        <div fxFlex>Names</div>
+        <div fxFlex fxGrow="4">
+          <div>{{ showNames() }}</div>
+        </div>
+      </div>
+
+      <div
+        *ngIf="person.addresses"
+        fxLayout="row wrap"
+        fxLayoutGap="10px"
+        fxFlex
+      >
+        <div fxFlex>Addresses</div>
+        <div fxFlex fxGrow="4">
+          <div *ngFor="let address of person.addresses">
+            {{ address.display }}
           </div>
         </div>
       </div>
 
-      <div fxLayout="row" class="location">
-        <div>Location</div>
-        <div>
-          <div *ngIf="person.addresses">
-            addresses:
-            <div *ngFor="let address of person.addresses">
-              {{ address.display }}
-            </div>
-          </div>
-          <div *ngIf="person.languages">
-            languages:
-            <span>{{ showLanguages() }} </span>
-          </div>
-
-          <div *ngIf="person.ethinicities">
-            ethinicities:
-            <span>{{ showEthnicities() }} </span>
-          </div>
-
-          <div *ngIf="person.origin_countries">
-            origin country:
-            <span>{{ showOriginCountries() }} </span>
-          </div>
-        </div>
+      <div *ngIf="person.languages" fxLayout="row wrap" fxLayoutGap="10px">
+        <div fxFlex>Languages</div>
+        <div fxFlex fxGrow="4">{{ showLanguages() }}</div>
       </div>
 
+      <div *ngIf="person.ethinicities" fxLayout="row wrap" fxLayoutGap="10px">
+        <div fxFlex>Ethinicities</div>
+        <div fxFlex fxGrow="4">{{ showEthnicities() }}</div>
+      </div>
+
+      <div
+        *ngIf="person.origin_countries"
+        fxLayout="row wrap"
+        fxLayoutGap="10px"
+      >
+        <div fxFlex>Origin Country</div>
+        <div fxFlex fxGrow="4">{{ showOriginCountries() }}</div>
+      </div>
+      <!--
       <div fxLayout="row" class="contact">
         <div>Contact</div>
         <div>
@@ -84,7 +93,7 @@
           </div>
         </div>
       </div>
-
+  
       <div fxLayout="row" class="online">
         <div *ngIf="person.user_ids">
           user ids:
@@ -122,6 +131,14 @@
           </div>
         </div>
       </div>
+
+                <div *ngIf="person.relationships">
+            relationships:
+            <div *ngFor="let relation of person.relationships">
+              {{ relation["@type"] }}: {{ relation.names[0]?.display }}
+            </div>
+          </div>
+      -->
     </div>
   </mat-card>
 </div>

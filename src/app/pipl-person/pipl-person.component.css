@@ -5,3 +5,19 @@ div {
 mat-card {
   margin: 5px;
 }
+
+.image-container {
+  min-width: 90px;
+}
+
+.image {
+  min-width: unset;
+  width: 100%;
+  max-width: 200px;
+}
+
+.table-row {
+  border-top: 1px solid rgb(150, 150, 150, 0.8);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
