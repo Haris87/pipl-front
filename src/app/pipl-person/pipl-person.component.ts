@@ -24,12 +24,6 @@ export class PiplPersonComponent implements OnInit {
     return this.person.addresses.map(address => address.display).join(", ");
   }
 
-  showRelationships() {
-    return this.person.relationships
-      .map(relationship => relationship.names[0].display)
-      .join(", ");
-  }
-
   showUrls() {
     return this.person.urls.map(url => url["@name"]).join(", ");
   }

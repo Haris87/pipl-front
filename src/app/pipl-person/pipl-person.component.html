@@ -1,76 +1,121 @@
-<div>
-  <strong>match: {{ person["@match"] }}</strong>
-  <!-- <pre>{{ person | json }}</pre> -->
-  <div *ngIf="person.images">
-    <span *ngFor="let src of getImages()"
-      ><img [src]="src" onError="this.style='display:none'"
-    /></span>
-  </div>
-  <div *ngIf="person.names">
-    names:
-    <span>{{ showNames() }}</span>
-  </div>
-  <div *ngIf="person.dob">
-    age:
-    <span>{{ person.dob.display }}</span>
-  </div>
-  <div *ngIf="person.gender">
-    gender:
-    <span>{{ person.gender.content }}</span>
-  </div>
-  <div *ngIf="person.emails">
-    emails:
-    <span>{{ showEmails() }} </span>
-  </div>
-  <div *ngIf="person.addresses">
-    addresses:
-    <span>{{ showAddresses() }} </span>
-  </div>
-  <div *ngIf="person.languages">
-    languages:
-    <span>{{ showLanguages() }} </span>
-  </div>
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <div *ngIf="person.names">
+          <span>{{ person["@match"] }}: {{ showNames() }}</span>
+        </div>
+      </mat-card-title>
+    </mat-card-header>
 
-  <div *ngIf="person.jobs">
-    jobs:
-    <span>{{ showJobs() }} </span>
-  </div>
+    <div fxLayout="column" fxLayoutAlign="space-between">
+      <div fxLayout="row">
+        <div class="images" *ngIf="person.images">
+          <span *ngFor="let src of getImages()"
+            ><img [src]="src" onError="this.style='display:none'"
+          /></span>
+        </div>
 
-  <div *ngIf="person.educations">
-    education:
-    <span>{{ showEducations() }} </span>
-  </div>
+        <div class="personal">
+          <div *ngIf="person.dob">
+            age:
+            <span>{{ person.dob.display }}</span>
+          </div>
+          <div *ngIf="person.gender">
+            gender:
+            <span>{{ person.gender.content }}</span>
+          </div>
+          <div *ngIf="person.relationships">
+            relationships:
+            <div *ngFor="let relation of person.relationships">
+              {{ relation["@type"] }}: {{ relation.names[0]?.display }}
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div *ngIf="person.phones">
-    phones:
-    <span>{{ showPhones() }} </span>
-  </div>
-  <div *ngIf="person.user_ids">
-    user ids:
-    <span>{{ showUserIds() }} </span>
-  </div>
-  <div *ngIf="person.usernames">
-    usernames:
-    <span>{{ showUsernames() }} </span>
-  </div>
+      <div fxLayout="row" class="location">
+        <div>Location</div>
+        <div>
+          <div *ngIf="person.addresses">
+            addresses:
+            <div *ngFor="let address of person.addresses">
+              {{ address.display }}
+            </div>
+          </div>
+          <div *ngIf="person.languages">
+            languages:
+            <span>{{ showLanguages() }} </span>
+          </div>
 
-  <div *ngIf="person.relationships">
-    relationships:
-    <span>{{ showRelationships() }} </span>
-  </div>
-  <div *ngIf="person.urls">
-    urls:
-    <span>{{ showUrls() }} </span>
-  </div>
+          <div *ngIf="person.ethinicities">
+            ethinicities:
+            <span>{{ showEthnicities() }} </span>
+          </div>
 
-  <div *ngIf="person.ethinicities">
-    ethinicities:
-    <span>{{ showEthnicities() }} </span>
-  </div>
+          <div *ngIf="person.origin_countries">
+            origin country:
+            <span>{{ showOriginCountries() }} </span>
+          </div>
+        </div>
+      </div>
 
-  <div *ngIf="person.origin_countries">
-    origin country:
-    <span>{{ showOriginCountries() }} </span>
-  </div>
-  <hr />
+      <div fxLayout="row" class="contact">
+        <div>Contact</div>
+        <div>
+          <div *ngIf="person.phones">
+            phones:
+            <div *ngFor="let phone of person.phones">
+              {{ phone.display_international }}
+            </div>
+          </div>
+
+          <div *ngIf="person.emails">
+            emails:
+            <div *ngFor="let email of person.emails">
+              {{ email.address }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div fxLayout="row" class="online">
+        <div *ngIf="person.user_ids">
+          user ids:
+          <div *ngFor="let user_id of person.user_ids">
+            {{ user_id.content }}
+          </div>
+        </div>
+        <div *ngIf="person.usernames">
+          usernames:
+          <div *ngFor="let username of person.usernames">
+            {{ username.content }}
+          </div>
+        </div>
+
+        <div *ngIf="person.urls">
+          urls:
+          <div *ngFor="let url of person.urls">
+            <a [href]="url.url" target="_blank">{{ url["@name"] }}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="professional">
+        <div *ngIf="person.jobs">
+          jobs:
+          <div *ngFor="let job of person.jobs">
+            {{ job.display }}
+          </div>
+        </div>
+
+        <div *ngIf="person.educations">
+          education:
+          <div *ngFor="let education of person.educations">
+            {{ education.display }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
 </div>
