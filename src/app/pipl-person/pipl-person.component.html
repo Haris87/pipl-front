@@ -56,10 +56,11 @@
 
       <!-- Second row-->
       <div
-        *ngIf="person.names && !lite"
+        *ngIf="person.names"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
+        [ngClass]="{ 'hide-row': lite }"
       >
         <mat-divider></mat-divider>
         <div class="table-cell" fxFlex>Names</div>
@@ -69,10 +70,11 @@
       </div>
 
       <div
-        *ngIf="person.phones && !lite"
+        *ngIf="person.phones"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
+        [ngClass]="{ 'hide-row': lite }"
       >
         <mat-divider></mat-divider>
         <div class="table-cell" fxFlex>Phones</div>
@@ -84,10 +86,11 @@
       </div>
 
       <div
-        *ngIf="person.emails && !lite"
+        *ngIf="person.emails"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
+        [ngClass]="{ 'hide-row': lite }"
       >
         <mat-divider></mat-divider>
         <div class="table-cell" fxFlex>Emails</div>
@@ -99,10 +102,11 @@
       </div>
 
       <div
-        *ngIf="person.addresses && !lite"
+        *ngIf="person.addresses"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
+        [ngClass]="{ 'hide-row': lite }"
       >
         <mat-divider></mat-divider>
         <div class="table-cell" fxFlex>Addresses</div>
@@ -114,10 +118,11 @@
       </div>
 
       <div
-        *ngIf="person.languages && !lite"
+        *ngIf="person.languages"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
+        [ngClass]="{ 'hide-row': lite }"
       >
         <mat-divider></mat-divider>
         <div class="table-cell" fxFlex>Languages</div>
@@ -125,10 +130,11 @@
       </div>
 
       <div
-        *ngIf="person.ethinicities && !lite"
+        *ngIf="person.ethinicities"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
+        [ngClass]="{ 'hide-row': lite }"
       >
         <mat-divider></mat-divider>
         <div class="table-cell" fxFlex>Ethinicities</div>
@@ -136,9 +142,11 @@
       </div>
 
       <div
-        *ngIf="person.origin_countries && !lite"
+        *ngIf="person.origin_countries"
         fxLayout="row wrap"
         fxLayoutGap="10px"
+        class="table-row"
+        [ngClass]="{ 'hide-row': lite }"
       >
         <mat-divider></mat-divider>
         <div class="table-cell" fxFlex>Origin Country</div>
@@ -148,10 +156,11 @@
       </div>
 
       <div
-        *ngIf="person.user_ids && !lite"
+        *ngIf="person.user_ids"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
+        [ngClass]="{ 'hide-row': lite }"
       >
         <mat-divider></mat-divider>
         <div class="table-cell" fxFlex>User IDs</div>
@@ -164,10 +173,11 @@
       </div>
 
       <div
-        *ngIf="person.usernames && !lite"
+        *ngIf="person.usernames"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
+        [ngClass]="{ 'hide-row': lite }"
       >
         <mat-divider></mat-divider>
         <div class="table-cell" fxFlex>Usernames</div>
@@ -180,10 +190,11 @@
       </div>
 
       <div
-        *ngIf="person.educations && !lite"
+        *ngIf="person.educations"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
+        [ngClass]="{ 'hide-row': lite }"
       >
         <mat-divider></mat-divider>
         <div class="table-cell" fxFlex>Education</div>
@@ -195,10 +206,11 @@
       </div>
 
       <div
-        *ngIf="person.jobs && !lite"
+        *ngIf="person.jobs"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
+        [ngClass]="{ 'hide-row': lite }"
       >
         <mat-divider></mat-divider>
         <div class="table-cell" fxFlex>Jobs</div>
@@ -210,10 +222,11 @@
       </div>
 
       <div
-        *ngIf="person.relationships && !lite"
+        *ngIf="person.relationships"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
+        [ngClass]="{ 'hide-row': lite }"
       >
         <mat-divider></mat-divider>
         <div class="table-cell" fxFlex>Relationships</div>
@@ -225,10 +238,11 @@
       </div>
 
       <div
-        *ngIf="person.urls && !lite"
+        *ngIf="person.urls"
         fxLayout="row wrap"
         fxLayoutGap="10px"
         class="table-row"
+        [ngClass]="{ 'hide-row': lite }"
       >
         <mat-divider></mat-divider>
         <div class="table-cell" fxFlex>URLs</div>

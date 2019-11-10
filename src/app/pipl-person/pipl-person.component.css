@@ -14,16 +14,24 @@ mat-card {
   min-width: unset;
   width: 100%;
   max-width: 200px;
+  transition: all 0.5s ease-in-out;
 }
 
 .table-row {
   padding-top: 5px;
+  height: 100%;
   padding-bottom: 5px;
+  transition: all 0.5s ease-in-out;
 }
 
 .table-cell {
   min-width: 90px;
   margin-top: 10px;
+}
+
+.hide-row {
+  height: 0px !important;
+  opacity: 0;
 }
 
 .image-lite {
