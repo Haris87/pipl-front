@@ -28,7 +28,7 @@ export class PiplService {
   }
 
   search(query: PiplQuery, found: boolean) {
-    console.log("results person", person);
+    console.log("pipl search query", query);
     // TODO call api
     if (found) {
       this.results.next(person);

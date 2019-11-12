@@ -10,15 +10,19 @@ import { PiplQuery } from "../pipl-query";
 export class PiplSearchComponent implements OnInit {
   constructor(private piplService: PiplService) {}
 
+  query: PiplQuery;
   resultType = false;
-  ngOnInit() {}
+
+  ngOnInit() {
+    this.query = new PiplQuery();
+  }
 
   search() {
     this.resultType = !this.resultType;
-    this.piplService.search(new PiplQuery(), this.resultType);
+    this.piplService.search(this.query, this.resultType);
   }
 
   clear() {
-    //TODO: clear all fields
+    this.query = new PiplQuery();
   }
 }

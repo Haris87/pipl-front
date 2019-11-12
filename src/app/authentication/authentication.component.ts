@@ -11,8 +11,6 @@ export class AuthenticationComponent implements OnInit {
   constructor(public authenticationService: AuthenticationService) {}
 
   user: any;
-  email: string;
-  password: string;
 
   signInTwitter() {
     this.authenticationService.signInTwitter();
@@ -26,11 +24,7 @@ export class AuthenticationComponent implements OnInit {
     this.authenticationService.signOut();
   }
 
-  ngOnInit() {
-    this.authenticationService.userData.subscribe(user => {
-      this.user = user;
-    });
-  }
+  ngOnInit() {}
 
   ngOnDestroy() {}
 }

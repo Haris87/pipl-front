@@ -9,9 +9,6 @@ import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
 import { AuthenticationComponent } from "./authentication/authentication.component";
 import { AppRoutingModule } from "./app-routing.module";
-import { PersonComponent } from "./person/person.component";
-import { PersonListComponent } from "./person-list/person-list.component";
-import { PersonService } from "./services/person.service";
 import { PiplService } from "./services/pipl.service";
 import { LoginComponent } from "./login/login.component";
 import { AuthGuard } from "./guards/auth-guard.service";
@@ -33,17 +30,15 @@ import { MainLayoutComponent } from "./main-layout/main-layout.component";
 import { FooterOnlyLayoutComponent } from "./footer-only-layout/footer-only-layout.component";
 import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
-import { PiplResultsComponent } from './pipl-results/pipl-results.component';
-import { PiplSearchComponent } from './pipl-search/pipl-search.component';
-import { PiplComponent } from './pipl/pipl.component';
-import { PiplPersonComponent } from './pipl-person/pipl-person.component';
+import { PiplResultsComponent } from "./pipl-results/pipl-results.component";
+import { PiplSearchComponent } from "./pipl-search/pipl-search.component";
+import { PiplComponent } from "./pipl/pipl.component";
+import { PiplPersonComponent } from "./pipl-person/pipl-person.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
-    PersonComponent,
-    PersonListComponent,
     LoginComponent,
     MeComponent,
     MainLayoutComponent,
@@ -75,13 +70,7 @@ import { PiplPersonComponent } from './pipl-person/pipl-person.component';
     MatCardModule,
     MatMenuModule
   ],
-  providers: [
-    AuthenticationService,
-    PersonService,
-    PiplService,
-    AuthGuard,
-    LoggedGuard
-  ],
+  providers: [AuthenticationService, PiplService, AuthGuard, LoggedGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -7,30 +7,42 @@
 
       <div fxLayout="row wrap">
         <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="first name" [(ngModel)]="first_name" />
+          <input
+            matInput
+            placeholder="first name"
+            [(ngModel)]="query.first_name"
+          />
         </mat-form-field>
 
         <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="last name" [(ngModel)]="last_name" />
+          <input
+            matInput
+            placeholder="last name"
+            [(ngModel)]="query.last_name"
+          />
         </mat-form-field>
       </div>
       <div fxLayout="row wrap">
         <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="middle name" [(ngModel)]="middle_name" />
+          <input
+            matInput
+            placeholder="middle name"
+            [(ngModel)]="query.middle_name"
+          />
         </mat-form-field>
 
         <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="age" [(ngModel)]="age" />
+          <input matInput placeholder="age" [(ngModel)]="query.age" />
         </mat-form-field>
       </div>
 
       <div fxLayout="row wrap">
         <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="phone" [(ngModel)]="phone" />
+          <input matInput placeholder="phone" [(ngModel)]="query.phone" />
         </mat-form-field>
 
         <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="email" [(ngModel)]="email" />
+          <input matInput placeholder="email" [(ngModel)]="query.email" />
         </mat-form-field>
       </div>
     </div>
@@ -44,17 +56,17 @@
 
       <div fxLayout="row wrap">
         <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="username" [(ngModel)]="username" />
+          <input matInput placeholder="username" [(ngModel)]="query.username" />
         </mat-form-field>
 
         <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="user id" [(ngModel)]="user_id" />
+          <input matInput placeholder="user id" [(ngModel)]="query.user_id" />
         </mat-form-field>
       </div>
 
       <div fxLayout="row wrap">
         <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="url" [(ngModel)]="url" />
+          <input matInput placeholder="url" [(ngModel)]="query.url" />
         </mat-form-field>
       </div>
     </div>
@@ -68,29 +80,29 @@
 
       <div fxLayout="row wrap">
         <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="country" [(ngModel)]="country" />
+          <input matInput placeholder="country" [(ngModel)]="query.country" />
         </mat-form-field>
 
         <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="state" [(ngModel)]="state" />
+          <input matInput placeholder="state" [(ngModel)]="query.state" />
         </mat-form-field>
       </div>
       <div fxLayout="row wrap">
         <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="city" [(ngModel)]="city" />
+          <input matInput placeholder="city" [(ngModel)]="query.city" />
         </mat-form-field>
 
         <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="zipcode" [(ngModel)]="zipcode" />
+          <input matInput placeholder="zipcode" [(ngModel)]="query.zipcode" />
         </mat-form-field>
       </div>
       <div fxLayout="row wrap">
         <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="street" [(ngModel)]="street" />
+          <input matInput placeholder="street" [(ngModel)]="query.street" />
         </mat-form-field>
 
         <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="house" [(ngModel)]="house" />
+          <input matInput placeholder="house" [(ngModel)]="query.house" />
         </mat-form-field>
       </div>
     </div>

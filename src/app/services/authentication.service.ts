@@ -1,14 +1,18 @@
 import { AngularFireAuth } from "@angular/fire/auth";
 import { auth } from "firebase";
 import { Injectable } from "@angular/core";
-import { Observable, Subscriber } from "rxjs";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class AuthenticationService {
-  userData: Observable<any>;
+  authState$: Observable<any>;
 
   constructor(private angularFireAuth: AngularFireAuth) {
-    this.userData = angularFireAuth.authState;
+    this.authState$ = angularFireAuth.authState;
+  }
+
+  getAuthState(): Observable<any> {
+    return this.authState$;
   }
 
   signInGmail() {

@@ -1,4 +1,5 @@
-<div *ngIf="user">
-  <!-- <span>{{ user?.displayName }}</span> -->
-  <img [src]="user?.photoURL" style="max-height:40px; border-radius: 50%" />
-</div>
+<ng-container *ngIf="user$ | async as user">
+  <div>
+    <img [src]="user?.photoURL" />
+  </div>
+</ng-container>

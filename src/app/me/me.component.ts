@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthenticationService } from "../services/authentication.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-me",
@@ -9,11 +10,9 @@ import { AuthenticationService } from "../services/authentication.service";
 export class MeComponent implements OnInit {
   constructor(private authenticationService: AuthenticationService) {}
 
-  user: any = {};
+  user$: Observable<any>;
 
   ngOnInit() {
-    this.authenticationService.userData.subscribe(user => {
-      this.user = user;
-    });
+    this.user$ = this.authenticationService.getAuthState();
   }
 }
