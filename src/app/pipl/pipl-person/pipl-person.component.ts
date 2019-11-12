@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from "@angular/core";
 @Component({
   selector: "app-pipl-person",
   templateUrl: "./pipl-person.component.html",
-  styleUrls: ["./pipl-person.component.css"]
+  styleUrls: ["./pipl-person.component.scss"]
 })
 export class PiplPersonComponent implements OnInit {
   @Input("person") person: any;

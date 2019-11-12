@@ -5,7 +5,7 @@ import { PiplQuery } from "../pipl-query";
 @Component({
   selector: "app-pipl-search",
   templateUrl: "./pipl-search.component.html",
-  styleUrls: ["./pipl-search.component.css"]
+  styleUrls: ["./pipl-search.component.scss"]
 })
 export class PiplSearchComponent implements OnInit {
   constructor(private piplService: PiplService) {}

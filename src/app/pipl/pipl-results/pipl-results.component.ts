@@ -4,7 +4,7 @@ import { PiplService } from "../pipl.service";
 @Component({
   selector: "app-pipl-results",
   templateUrl: "./pipl-results.component.html",
-  styleUrls: ["./pipl-results.component.css"]
+  styleUrls: ["./pipl-results.component.scss"]
 })
 export class PiplResultsComponent implements OnInit {
   constructor(private piplService: PiplService) {}
