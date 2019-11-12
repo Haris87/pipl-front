@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { AuthenticationService } from "../services/authentication.service";
+import { AuthenticationService } from "../authentication.service";
 import { Observable, Subject } from "rxjs";
 
 @Component({
@@ -12,19 +12,5 @@ export class AuthenticationComponent implements OnInit {
 
   user: any;
 
-  signInTwitter() {
-    this.authenticationService.signInTwitter();
-  }
-
-  signInGmail() {
-    this.authenticationService.signInGmail();
-  }
-
-  signOut() {
-    this.authenticationService.signOut();
-  }
-
   ngOnInit() {}
-
-  ngOnDestroy() {}
 }

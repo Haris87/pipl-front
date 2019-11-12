@@ -3,7 +3,7 @@
     mat-raised-button
     color="warn"
     class="btn-block"
-    (click)="signInGmail()"
+    (click)="authenticationService.signInGmail()"
   >
     Login with Gmail
   </button>
@@ -12,7 +12,7 @@
     mat-raised-button
     color="twitter"
     class="btn-block"
-    (click)="signInTwitter()"
+    (click)="authenticationService.signInTwitter()"
   >
     Login with Twitter
   </button>
