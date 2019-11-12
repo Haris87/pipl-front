@@ -25,6 +25,7 @@ import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
 import { PiplModule } from "./pipl/pipl.module";
 import { AuthenticationModule } from "./authentication/authentication.module";
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AuthenticationModule } from "./authentication/authentication.module";
     MainLayoutComponent,
     FooterOnlyLayoutComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,

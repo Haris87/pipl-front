@@ -6,6 +6,7 @@ import { FooterOnlyLayoutComponent } from "./footer-only-layout/footer-only-layo
 import { MainLayoutComponent } from "./main-layout/main-layout.component";
 import { LoggedGuard } from "./authentication/logged-guard.service";
 import { PiplComponent } from "./pipl/pipl/pipl.component";
+import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.component";
 
 const routes: Routes = [
   {
@@ -24,6 +25,11 @@ const routes: Routes = [
     component: FooterOnlyLayoutComponent,
     children: [{ path: "", component: LoginComponent }],
     canActivate: [LoggedGuard]
+  },
+  {
+    path: "privacy-policy",
+    component: FooterOnlyLayoutComponent,
+    children: [{ path: "", component: PrivacyPolicyComponent }]
   },
   { path: "", redirectTo: "pipl", pathMatch: "full" }
 ];
