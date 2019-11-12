@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { PiplService } from "../services/pipl.service";
+import { PiplService } from "../pipl.service";
 
 @Component({
   selector: "app-pipl-results",

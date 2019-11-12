@@ -9,7 +9,7 @@ import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
 import { AuthenticationComponent } from "./authentication/authentication.component";
 import { AppRoutingModule } from "./app-routing.module";
-import { PiplService } from "./services/pipl.service";
+import { PiplService } from "./pipl/pipl.service";
 import { LoginComponent } from "./login/login.component";
 import { AuthGuard } from "./guards/auth-guard.service";
 import { LoggedGuard } from "./guards/logged-guard.service";
@@ -30,10 +30,7 @@ import { MainLayoutComponent } from "./main-layout/main-layout.component";
 import { FooterOnlyLayoutComponent } from "./footer-only-layout/footer-only-layout.component";
 import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
-import { PiplResultsComponent } from "./pipl-results/pipl-results.component";
-import { PiplSearchComponent } from "./pipl-search/pipl-search.component";
-import { PiplComponent } from "./pipl/pipl.component";
-import { PiplPersonComponent } from "./pipl-person/pipl-person.component";
+import { PiplModule } from "./pipl/pipl.module";
 
 @NgModule({
   declarations: [
@@ -44,11 +41,7 @@ import { PiplPersonComponent } from "./pipl-person/pipl-person.component";
     MainLayoutComponent,
     FooterOnlyLayoutComponent,
     FooterComponent,
-    HeaderComponent,
-    PiplResultsComponent,
-    PiplSearchComponent,
-    PiplComponent,
-    PiplPersonComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +61,8 @@ import { PiplPersonComponent } from "./pipl-person/pipl-person.component";
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    PiplModule
   ],
   providers: [AuthenticationService, PiplService, AuthGuard, LoggedGuard],
   bootstrap: [AppComponent]

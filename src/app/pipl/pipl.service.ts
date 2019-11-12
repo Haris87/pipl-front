@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { PiplQuery } from "../pipl-query";
+import { PiplQuery } from "./pipl-query";
 import { possible, person } from "../data/pipl-response";
 import { Observable, of, Subject } from "rxjs";
 
