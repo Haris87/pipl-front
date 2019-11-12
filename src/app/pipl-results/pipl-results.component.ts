@@ -9,12 +9,9 @@ import { PiplService } from "../services/pipl.service";
 export class PiplResultsComponent implements OnInit {
   constructor(private piplService: PiplService) {}
 
-  results: any;
+  results$: any;
 
   ngOnInit() {
-    this.piplService.getResults().subscribe(_results => {
-      console.log("results changed", _results);
-      this.results = _results;
-    });
+    this.results$ = this.piplService.getResults();
   }
 }

@@ -1,10 +1,10 @@
 <div class="container">
   <mat-card>
     <!-- 
-    <mat-card-header>
-      <mat-card-title></mat-card-title>
-    </mat-card-header>
-    -->
+          <mat-card-header>
+            <mat-card-title></mat-card-title>
+          </mat-card-header>
+          -->
 
     <div fxLayout="column" fxLayoutAlign="left space-between">
       <!-- Top row: Image name, email, phone, age-->
@@ -138,7 +138,9 @@
       >
         <mat-divider></mat-divider>
         <div class="table-cell" fxFlex>Ethinicities</div>
-        <div class="table-cell" fxFlex fxGrow="4">{{ showEthnicities() }}</div>
+        <div class="table-cell" fxFlex fxGrow="4">
+          {{ showEthnicities() }}
+        </div>
       </div>
 
       <div
@@ -167,8 +169,8 @@
         <div class="table-cell" fxFlex fxGrow="4">
           {{ showUserIds() }}
           <!-- <div *ngFor="let user_id of person.user_ids">
-            {{ user_id.content }}
-          </div> -->
+                  {{ user_id.content }}
+                </div> -->
         </div>
       </div>
 
@@ -184,8 +186,8 @@
         <div class="table-cell" fxFlex fxGrow="4">
           {{ showUsernames() }}
           <!-- <div *ngFor="let user_id of person.user_ids">
-              {{ user_id.content }}
-            </div> -->
+                    {{ user_id.content }}
+                  </div> -->
         </div>
       </div>
 
