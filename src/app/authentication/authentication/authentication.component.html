@@ -1,11 +1,11 @@
 <div fxLayout="column" fxLayoutAlign="space-between stretch">
   <button
     mat-raised-button
-    color="gmail"
+    color="facebook"
     class="btn-block"
-    (click)="authenticationService.signInGmail()"
+    (click)="authenticationService.signInFacebook()"
   >
-    Login with Gmail
+    Login with Facebook
   </button>
 
   <button
@@ -15,5 +15,14 @@
     (click)="authenticationService.signInTwitter()"
   >
     Login with Twitter
+  </button>
+
+  <button
+    mat-raised-button
+    color="gmail"
+    class="btn-block"
+    (click)="authenticationService.signInGmail()"
+  >
+    Login with Gmail
   </button>
 </div>

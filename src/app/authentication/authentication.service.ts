@@ -26,6 +26,17 @@ export class AuthenticationService {
       });
   }
 
+  signInFacebook() {
+    this.angularFireAuth.auth
+      .signInWithPopup(new auth.FacebookAuthProvider())
+      .then(res => {
+        console.log("Successfully signed in!");
+      })
+      .catch(err => {
+        console.log("Something is wrong:", err.message);
+      });
+  }
+
   signInTwitter() {
     this.angularFireAuth.auth
       .signInWithPopup(new auth.TwitterAuthProvider())
