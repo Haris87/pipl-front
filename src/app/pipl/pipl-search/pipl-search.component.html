@@ -25,8 +25,8 @@
     </div>
   </mat-card>
 
-  <div class="toggler" *ngIf="!showAdvanced" (click)="showAdvanced = true">
-    <a>Show advanced search...</a>
+  <div class="toggler" *ngIf="!showAdvanced" fxLayoutAlign="end end">
+    <a (click)="showAdvanced = true">Show advanced search...</a>
   </div>
 
   <!-- advanced search-->
@@ -156,7 +156,7 @@
     </div>
   </mat-card>
 
-  <div class="toggler" *ngIf="showAdvanced" (click)="showAdvanced = false">
-    <a>Hide advanced search...</a>
+  <div class="toggler" *ngIf="showAdvanced" fxLayoutAlign="end end">
+    <a (click)="showAdvanced = false">Hide advanced search...</a>
   </div>
 </div>
