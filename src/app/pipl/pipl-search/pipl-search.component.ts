@@ -12,6 +12,7 @@ export class PiplSearchComponent implements OnInit {
 
   query: PiplQuery;
   resultType = false;
+  showAdvanced = false;
 
   ngOnInit() {
     this.query = new PiplQuery();

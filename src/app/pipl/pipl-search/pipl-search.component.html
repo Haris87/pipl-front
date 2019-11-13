@@ -1,136 +1,21 @@
-<div class="container">
-  <mat-card>
-    <div fxLayout="column wrap">
-      <h4>
-        <span>Personal</span>
-      </h4>
-
-      <div fxLayout="row wrap">
-        <mat-form-field class="form-element" fxFlex>
-          <input
-            matInput
-            placeholder="first name"
-            [(ngModel)]="query.first_name"
-          />
-        </mat-form-field>
-
-        <mat-form-field class="form-element" fxFlex>
-          <input
-            matInput
-            placeholder="last name"
-            [(ngModel)]="query.last_name"
-          />
-        </mat-form-field>
-      </div>
-      <div fxLayout="row wrap">
-        <mat-form-field class="form-element" fxFlex>
-          <input
-            matInput
-            placeholder="middle name"
-            [(ngModel)]="query.middle_name"
-          />
-        </mat-form-field>
-
-        <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="age" [(ngModel)]="query.age" />
-        </mat-form-field>
-      </div>
-
-      <div fxLayout="row wrap">
-        <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="phone" [(ngModel)]="query.phone" />
-        </mat-form-field>
-
-        <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="email" [(ngModel)]="query.email" />
-        </mat-form-field>
-      </div>
-    </div>
-
-    <mat-divider></mat-divider>
-
-    <div fxLayout="column wrap">
-      <h4>
-        <span>Online</span>
-      </h4>
-
-      <div fxLayout="row wrap">
-        <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="username" [(ngModel)]="query.username" />
-        </mat-form-field>
-
-        <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="user id" [(ngModel)]="query.user_id" />
-        </mat-form-field>
-      </div>
-
-      <div fxLayout="row wrap">
-        <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="url" [(ngModel)]="query.url" />
-        </mat-form-field>
-      </div>
-    </div>
-
-    <mat-divider></mat-divider>
-
-    <div fxLayout="column wrap">
-      <h4>
-        <span>Location</span>
-      </h4>
-
-      <div fxLayout="row wrap">
-        <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="country" [(ngModel)]="query.country" />
-        </mat-form-field>
-
-        <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="state" [(ngModel)]="query.state" />
-        </mat-form-field>
-      </div>
-      <div fxLayout="row wrap">
-        <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="city" [(ngModel)]="query.city" />
-        </mat-form-field>
-
-        <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="zipcode" [(ngModel)]="query.zipcode" />
-        </mat-form-field>
-      </div>
-      <div fxLayout="row wrap">
-        <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="street" [(ngModel)]="query.street" />
-        </mat-form-field>
-
-        <mat-form-field class="form-element" fxFlex>
-          <input matInput placeholder="house" [(ngModel)]="query.house" />
-        </mat-form-field>
-      </div>
-    </div>
-
-    <div
-      fxLayout="column wrap"
-      fxLayoutAlign="space-between"
-      fxLayoutGap="10px;"
-    >
+<div fxLayout="column" fxFlex>
+  <!-- simple search -->
+  <mat-card *ngIf="!showAdvanced">
+    <div fxLayout="row">
       <div fxFlex>
-        <button
-          mat-stroked-button
-          style="width: 100px!important;"
-          color="accent"
-          class="btn-block"
-          (click)="clear()"
-        >
-          Clear
-        </button>
+        <mat-form-field class="form-element" fxFlex>
+          <input
+            fxFlex
+            matInput
+            placeholder="full name"
+            [(ngModel)]="query.raw_name"
+          />
+        </mat-form-field>
       </div>
-
-      <div class="separator"></div>
-
-      <div fxFlex>
+      <div>
         <button
           mat-raised-button
-          style="width: 100px!important;"
-          color="accent"
+          color="primary"
           class="btn-block"
           (click)="search()"
         >
@@ -139,4 +24,139 @@
       </div>
     </div>
   </mat-card>
+
+  <div class="toggler" *ngIf="!showAdvanced" (click)="showAdvanced = true">
+    <a>Show advanced search...</a>
+  </div>
+
+  <!-- advanced search-->
+  <mat-card *ngIf="showAdvanced">
+    <div fxLayout="column wrap">
+      <div fxLayout="column wrap">
+        <h4>
+          <span>Personal</span>
+        </h4>
+
+        <div fxLayout="row wrap">
+          <mat-form-field class="form-element" fxFlex>
+            <input
+              matInput
+              placeholder="first name"
+              [(ngModel)]="query.first_name"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="form-element" fxFlex>
+            <input
+              matInput
+              placeholder="middle name"
+              [(ngModel)]="query.middle_name"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="form-element" fxFlex>
+            <input
+              matInput
+              placeholder="last name"
+              [(ngModel)]="query.last_name"
+            />
+          </mat-form-field>
+        </div>
+        <div fxLayout="row wrap">
+          <mat-form-field class="form-element" fxFlex>
+            <input matInput placeholder="age" [(ngModel)]="query.age" />
+          </mat-form-field>
+
+          <mat-form-field class="form-element" fxFlex>
+            <input matInput placeholder="phone" [(ngModel)]="query.phone" />
+          </mat-form-field>
+
+          <mat-form-field class="form-element" fxFlex>
+            <input matInput placeholder="email" [(ngModel)]="query.email" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="column wrap">
+        <h4>
+          <span>Online</span>
+        </h4>
+
+        <div fxLayout="row wrap">
+          <mat-form-field class="form-element" fxFlex>
+            <input
+              matInput
+              placeholder="username"
+              [(ngModel)]="query.username"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="form-element" fxFlex>
+            <input matInput placeholder="user id" [(ngModel)]="query.user_id" />
+          </mat-form-field>
+
+          <mat-form-field class="form-element" fxFlex>
+            <input matInput placeholder="url" [(ngModel)]="query.url" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="column wrap">
+        <h4>
+          <span>Location</span>
+        </h4>
+
+        <div fxLayout="row wrap">
+          <mat-form-field class="form-element" fxFlex>
+            <input matInput placeholder="country" [(ngModel)]="query.country" />
+          </mat-form-field>
+
+          <mat-form-field class="form-element" fxFlex>
+            <input matInput placeholder="state" [(ngModel)]="query.state" />
+          </mat-form-field>
+
+          <mat-form-field class="form-element" fxFlex>
+            <input matInput placeholder="city" [(ngModel)]="query.city" />
+          </mat-form-field>
+        </div>
+        <div fxLayout="row wrap">
+          <mat-form-field class="form-element" fxFlex>
+            <input matInput placeholder="zipcode" [(ngModel)]="query.zipcode" />
+          </mat-form-field>
+
+          <mat-form-field class="form-element" fxFlex>
+            <input matInput placeholder="street" [(ngModel)]="query.street" />
+          </mat-form-field>
+
+          <mat-form-field class="form-element" fxFlex>
+            <input matInput placeholder="house" [(ngModel)]="query.house" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="column wrap">
+        <button
+          mat-stroked-button
+          color="accent"
+          class="btn-block"
+          (click)="clear()"
+        >
+          Clear
+        </button>
+
+        <button
+          mat-raised-button
+          color="primary"
+          class="btn-block"
+          (click)="search()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </mat-card>
+
+  <div class="toggler" *ngIf="showAdvanced" (click)="showAdvanced = false">
+    <a>Hide advanced search...</a>
+  </div>
 </div>
