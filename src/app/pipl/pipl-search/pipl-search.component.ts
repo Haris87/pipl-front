@@ -20,7 +20,7 @@ export class PiplSearchComponent implements OnInit {
 
   search() {
     this.resultType = !this.resultType;
-    this.piplService.search(this.query, this.resultType);
+    this.piplService.search(this.query);
   }
 
   clear() {

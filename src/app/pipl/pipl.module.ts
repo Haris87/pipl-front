@@ -20,6 +20,7 @@ import {
 import { LayoutModule } from "@angular/cdk/layout";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormsModule } from "@angular/forms";
   imports: [
     CommonModule,
     MatFormFieldModule,
+    HttpClientModule,
     MatInputModule,
     LayoutModule,
     FlexLayoutModule,
