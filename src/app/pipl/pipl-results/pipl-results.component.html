@@ -1,9 +1,9 @@
-<div class="container" fxLayout="column" fxLayoutAlign="left">
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
   <ng-container *ngIf="results$ | async as results">
-    <div class="person" *ngIf="results.person">
+    <div class="person " *ngIf="results.person">
       <app-pipl-person [person]="results.person"></app-pipl-person>
     </div>
-    <div class="possible" *ngIf="results.possible_persons">
+    <div class="possible result-card" *ngIf="results.possible_persons">
       <div *ngFor="let possible_person of results.possible_persons; index as i">
         <app-pipl-person
           [person]="possible_person"

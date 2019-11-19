@@ -4,7 +4,7 @@
 $primary: mat-palette($mat-blue-gray);
 $accent: mat-palette($mat-blue-gray, A100);
 $warn: mat-palette($mat-red, A100);
-$hyperborean-theme: mat-dark-theme($primary, $accent, $warn);
+$pipl-theme: mat-dark-theme($primary, $accent, $warn);
 
 a {
   color: mat-color($warn, default);
@@ -14,4 +14,4 @@ body {
   color: mat-color($accent, default);
 }
 
-@include angular-material-theme($hyperborean-theme);
+@include angular-material-theme($pipl-theme);

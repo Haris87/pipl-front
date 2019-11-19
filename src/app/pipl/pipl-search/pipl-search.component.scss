@@ -2,6 +2,11 @@ mat-card {
   margin: 5px;
 }
 
+.mat-form-field-wrapper {
+  border: 1px solid red;
+  padding: 0px !important;
+}
+
 button {
   min-width: 100% !important;
   line-height: 40px !important;

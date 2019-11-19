@@ -1,32 +1,23 @@
 <div fxLayout="column" fxFlex>
   <!-- simple search -->
-  <mat-card *ngIf="!showAdvanced">
-    <div fxLayout="row">
-      <div fxFlex>
-        <mat-form-field class="form-element" fxFlex>
-          <input
-            fxFlex
-            matInput
-            placeholder="full name"
-            [(ngModel)]="query.raw_name"
-          />
-        </mat-form-field>
-      </div>
-      <div>
-        <button
-          mat-raised-button
-          color="primary"
-          class="btn-block"
-          (click)="search()"
-        >
-          Search
-        </button>
-      </div>
-    </div>
-  </mat-card>
 
-  <div class="toggler" *ngIf="!showAdvanced" fxLayoutAlign="end end">
-    <a (click)="showAdvanced = true">Show advanced search...</a>
+  <div *ngIf="!showAdvanced" fxLayout="column" fxFlex>
+    <div fxFlex>
+      <mat-form-field appearance="outline" class="form-element" fxFlex>
+        <input
+          fxFlex
+          matInput
+          placeholder="full name"
+          [(ngModel)]="query.raw_name"
+        />
+        <button matSuffix mat-icon-button color="accent" (click)="search()">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="toggler" *ngIf="!showAdvanced" fxLayoutAlign="end end">
+      <a (click)="showAdvanced = true">Show advanced search...</a>
+    </div>
   </div>
 
   <!-- advanced search-->
@@ -38,7 +29,7 @@
         </h4>
 
         <div fxLayout="row wrap">
-          <mat-form-field class="form-element" fxFlex>
+          <mat-form-field appearance="outline" class="form-element" fxFlex>
             <input
               matInput
               placeholder="first name"
@@ -46,7 +37,7 @@
             />
           </mat-form-field>
 
-          <mat-form-field class="form-element" fxFlex>
+          <mat-form-field appearance="outline" class="form-element" fxFlex>
             <input
               matInput
               placeholder="middle name"
@@ -54,7 +45,7 @@
             />
           </mat-form-field>
 
-          <mat-form-field class="form-element" fxFlex>
+          <mat-form-field appearance="outline" class="form-element" fxFlex>
             <input
               matInput
               placeholder="last name"
@@ -63,15 +54,15 @@
           </mat-form-field>
         </div>
         <div fxLayout="row wrap">
-          <mat-form-field class="form-element" fxFlex>
+          <mat-form-field appearance="outline" class="form-element" fxFlex>
             <input matInput placeholder="age" [(ngModel)]="query.age" />
           </mat-form-field>
 
-          <mat-form-field class="form-element" fxFlex>
+          <mat-form-field appearance="outline" class="form-element" fxFlex>
             <input matInput placeholder="phone" [(ngModel)]="query.phone" />
           </mat-form-field>
 
-          <mat-form-field class="form-element" fxFlex>
+          <mat-form-field appearance="outline" class="form-element" fxFlex>
             <input matInput placeholder="email" [(ngModel)]="query.email" />
           </mat-form-field>
         </div>
@@ -83,7 +74,7 @@
         </h4>
 
         <div fxLayout="row wrap">
-          <mat-form-field class="form-element" fxFlex>
+          <mat-form-field appearance="outline" class="form-element" fxFlex>
             <input
               matInput
               placeholder="username"
@@ -91,11 +82,11 @@
             />
           </mat-form-field>
 
-          <mat-form-field class="form-element" fxFlex>
+          <mat-form-field appearance="outline" class="form-element" fxFlex>
             <input matInput placeholder="user id" [(ngModel)]="query.user_id" />
           </mat-form-field>
 
-          <mat-form-field class="form-element" fxFlex>
+          <mat-form-field appearance="outline" class="form-element" fxFlex>
             <input matInput placeholder="url" [(ngModel)]="query.url" />
           </mat-form-field>
         </div>
@@ -107,28 +98,28 @@
         </h4>
 
         <div fxLayout="row wrap">
-          <mat-form-field class="form-element" fxFlex>
+          <mat-form-field appearance="outline" class="form-element" fxFlex>
             <input matInput placeholder="country" [(ngModel)]="query.country" />
           </mat-form-field>
 
-          <mat-form-field class="form-element" fxFlex>
+          <mat-form-field appearance="outline" class="form-element" fxFlex>
             <input matInput placeholder="state" [(ngModel)]="query.state" />
           </mat-form-field>
 
-          <mat-form-field class="form-element" fxFlex>
+          <mat-form-field appearance="outline" class="form-element" fxFlex>
             <input matInput placeholder="city" [(ngModel)]="query.city" />
           </mat-form-field>
         </div>
         <div fxLayout="row wrap">
-          <mat-form-field class="form-element" fxFlex>
+          <mat-form-field appearance="outline" class="form-element" fxFlex>
             <input matInput placeholder="zipcode" [(ngModel)]="query.zipcode" />
           </mat-form-field>
 
-          <mat-form-field class="form-element" fxFlex>
+          <mat-form-field appearance="outline" class="form-element" fxFlex>
             <input matInput placeholder="street" [(ngModel)]="query.street" />
           </mat-form-field>
 
-          <mat-form-field class="form-element" fxFlex>
+          <mat-form-field appearance="outline" class="form-element" fxFlex>
             <input matInput placeholder="house" [(ngModel)]="query.house" />
           </mat-form-field>
         </div>

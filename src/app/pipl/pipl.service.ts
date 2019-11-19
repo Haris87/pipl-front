@@ -31,19 +31,21 @@ export class PiplService {
   }
 
   search(query: PiplQuery) {
-    const params = this.constructParams(query);
-    console.log(params.toString());
-    this.httpClient
-      .get<any>(PIPL_URL, {
-        params
-      })
-      .pipe(take(1))
-      .subscribe(
-        response => {
-          this.results.next(response);
-        },
-        error => console.log("ERROR", error)
-      );
+    this.results.next(possible);
+    this.results.complete();
+    // const params = this.constructParams(query);
+    // console.log(params.toString());
+    // this.httpClient
+    //   .get<any>(PIPL_URL, {
+    //     params
+    //   })
+    //   .pipe(take(1))
+    //   .subscribe(
+    //     response => {
+    //       this.results.next(response);
+    //     },
+    //     error => console.log("ERROR", error)
+    //   );
   }
 
   constructParams(query: PiplQuery) {
