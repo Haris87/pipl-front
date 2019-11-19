@@ -14,11 +14,9 @@ const PIPL_URL: string = "https://api.pipl.com/search/";
 export class PiplService {
   constructor(private httpClient: HttpClient) {
     this.results = new Subject<any>();
-    this.setApiKey("g6bgwkzuk56lda74b02f0umg");
   }
 
   results: Subject<any>;
-  results$: Observable<any>;
 
   setApiKey(ApiKey: string) {
     localStorage.setItem(STORAGE_KEY, ApiKey);
@@ -29,21 +27,23 @@ export class PiplService {
   }
 
   getResults(): Observable<any> {
-    return this.results$;
+    return this.results.asObservable();
   }
 
   search(query: PiplQuery) {
     const params = this.constructParams(query);
     console.log(params.toString());
-    this.results$ = this.httpClient.get<any>(PIPL_URL, {
-      params
-    });
-
-    this.results$.pipe(take(1)).subscribe(
-      response => console.log("response", response),
-      error => console.log("ERROR", error)
-    );
-    return this.results$;
+    this.httpClient
+      .get<any>(PIPL_URL, {
+        params
+      })
+      .pipe(take(1))
+      .subscribe(
+        response => {
+          this.results.next(response);
+        },
+        error => console.log("ERROR", error)
+      );
   }
 
   constructParams(query: PiplQuery) {
